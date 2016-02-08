@@ -23,6 +23,12 @@ Let's say we only care about the final count of bike share locations with more t
 
 var data = bikeArrayClean;
 
-var largeStationList;
+var largeStationList = _.filter(data, function(arr){
+  return arr[3] > 20;
+});
+console.log(largeStationList);
 
-var largeStationCount;
+var largeStationCount = _.countBy(largeStationList, function(arr){
+  return arr.value;
+});
+console.log(largeStationCount);
